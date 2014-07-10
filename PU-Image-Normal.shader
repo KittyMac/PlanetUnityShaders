@@ -11,6 +11,7 @@ Shader "PlanetUnity/Image/Normal"
 			"Queue"="Transparent"
 			"IgnoreProjector"="True"
 			"RenderType"="Transparent"
+			"ForceNoShadowCasting"="True"
 			"PreviewType"="Plane"
 		}
 		Cull Off

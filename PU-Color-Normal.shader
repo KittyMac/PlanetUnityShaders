@@ -6,7 +6,13 @@ Shader "PlanetUnity/Color/Normal"
 	}
 	SubShader
 	{
-		Tags { "Queue"="Transparent" "IgnoreProjector"="True" }
+		Tags {
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
+			"ForceNoShadowCasting"="True"
+			"PreviewType"="Plane"
+		}
 		Cull Off
 		ZWrite Off
     	Blend SrcAlpha OneMinusSrcAlpha
