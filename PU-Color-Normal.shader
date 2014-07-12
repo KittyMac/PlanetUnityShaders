@@ -14,6 +14,7 @@ Shader "PlanetUnity/Color/Normal"
 			"PreviewType"="Plane"
 		}
 		Cull Off
+		ZTest Off
 		ZWrite Off
     	Blend SrcAlpha OneMinusSrcAlpha
 		Fog { Mode Off }
