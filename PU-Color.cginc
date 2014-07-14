@@ -16,7 +16,7 @@ v2f vert (appdata v)
 {
 	v2f o;
 	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-	o.color = v.color*_Color;
+	o.color = _Color;
 	return o;
 }
 half4 frag(v2f i) : COLOR
