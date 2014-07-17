@@ -17,12 +17,13 @@ struct v2f
 sampler2D _MainTex;
 uniform float4 _MainTex_ST;
 uniform fixed4 _Color;
+uniform float _Alpha;
 
 v2f vert (appdata v)
 {
 	v2f o;
 	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-	o.color = v.color*_Color;
+	o.color = v.color*_Color*float4(1,1,1,_Alpha);
 	o.texcoord = v.texcoord;
 	return o;
 }

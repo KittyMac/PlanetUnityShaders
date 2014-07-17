@@ -2,6 +2,7 @@
 #define PU_COLOR_INCLUDED
 
 fixed4 _Color;
+float _Alpha;
 struct appdata
 {
 	float4 vertex : POSITION;
@@ -16,7 +17,7 @@ v2f vert (appdata v)
 {
 	v2f o;
 	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-	o.color = _Color;
+	o.color = _Color * float4(1,1,1,_Alpha);
 	return o;
 }
 half4 frag(v2f i) : COLOR

@@ -3,6 +3,7 @@ Shader "PlanetUnity/Color/DepthMask"
 	Properties
 	{
 		_Color ("Main Color", Color) = (1, 1, 1, 1)
+		_Alpha ("Fade Alpha", Float) = 1
 	}
 	SubShader
 	{
