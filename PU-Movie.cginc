@@ -1,5 +1,5 @@
-#ifndef PU_IMAGE_INCLUDED
-#define PU_IMAGE_INCLUDED
+#ifndef PU_MOVIE_INCLUDED
+#define PU_MOVIE_INCLUDED
 
 struct appdata
 {

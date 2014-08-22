@@ -1,5 +1,5 @@
-#ifndef PU_IMAGE_INCLUDED
-#define PU_IMAGE_INCLUDED
+#ifndef PU_ALPHAMOVIE_INCLUDED
+#define PU_ALPHAMOVIE_INCLUDED
 
 struct appdata
 {
@@ -11,7 +11,8 @@ struct v2f
 {
 	float4 pos : SV_POSITION;
 	fixed4 color : COLOR;
-	float2 texcoord : TEXCOORD0;
+	float2 texcoord1 : TEXCOORD0;
+	float2 texcoord2 : TEXCOORD1;
 };
 
 sampler2D _MainTex;
@@ -24,13 +25,16 @@ v2f vert (appdata v)
 	v2f o;
 	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 	o.color = v.color*_Color*float4(1,1,1,_Alpha);
-	o.texcoord = v.texcoord;
+	o.texcoord1 = float2(v.texcoord.x*0.5, v.texcoord.y);
+	o.texcoord2 = float2(v.texcoord.x*0.5+0.5, v.texcoord.y);
 	return o;
 }
 
 half4 frag(v2f i) : COLOR
 {
-	return tex2D(_MainTex, i.texcoord) * i.color;
+	half4 color = tex2D(_MainTex, i.texcoord1) * i.color;
+	color.a = tex2D(_MainTex, i.texcoord2).r;
+	return color;
 }
 
 #endif
